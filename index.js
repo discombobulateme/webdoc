@@ -31,14 +31,15 @@ class Jumpers {
   }
 }
 
-class Objects {
-  constructor(type, height, landing) {
+class Places {
+  constructor(type, coordinates, height, landing) {
     this.type = type
+    this.coordinates = []
     this.height = height
     this.landing = landing
   }
 
-  addObject(type) {
+  addPlace(type) {
     if (type === 'b' || 'a' || 's' || 'e') {
       return type
     } else {
@@ -48,12 +49,18 @@ class Objects {
 
 }
 
+class VisitedPlaces {
+  constructor() {
+    this.visit = visit
+  }
+}
+
 const paloma = new Jumpers('paloma', 37, 'p@p.com', '123456', 2009, 'Ruy Fernandes', 'Ponde de Resende')
-const onca = new Objects('', 450, 'green grass')
+const onca = new Places('', 450, 'green grass')
 
 paloma.addJump(200)
 paloma.addDiary('Kjerag') // returning undefined
-onca.addObject('resende')
+onca.addPlace('resende')
 
 console.log(paloma.jumps)
 console.log(onca.type)
