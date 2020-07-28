@@ -38,7 +38,7 @@ class Places {
     this.landing = landing
   }
 
-  addObject(type) {
+  addPlaces(type) {
     if (type === 'b' || 'a' || 's' || 'e') {
       return type
     } else {
