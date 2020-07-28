@@ -31,7 +31,7 @@ class Jumpers {
   }
 }
 
-class Objects {
+class Places {
   constructor(type, height, landing) {
     this.type = type
     this.height = height
