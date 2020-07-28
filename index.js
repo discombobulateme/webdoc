@@ -31,14 +31,14 @@ class Jumpers {
   }
 }
 
-class Objects {
+class Places {
   constructor(type, height, landing) {
     this.type = type
     this.height = height
     this.landing = landing
   }
 
-  addObject(type) {
+  addPlaces(type) {
     if (type === 'b' || 'a' || 's' || 'e') {
       return type
     } else {
