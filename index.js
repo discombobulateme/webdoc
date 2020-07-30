@@ -47,6 +47,12 @@ class Places {
 
 }
 
+class VisitedPlaces {
+  constructor() {
+    this.visit = visit
+  }
+}
+
 const paloma = new Jumpers('paloma', 37, 'p@p.com', '123456', 2009, 'Ruy Fernandes', 'Ponde de Resende')
 const onca = new Objects('', 450, 'green grass')
 
