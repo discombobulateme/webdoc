@@ -34,6 +34,7 @@ class Jumpers {
 class Places {
   constructor(type, height, landing) {
     this.type = type
+    this.coordinates = []
     this.height = height
     this.landing = landing
   }
