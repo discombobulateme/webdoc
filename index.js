@@ -41,9 +41,8 @@ class Places {
   addPlaces(type) {
     if (type === 'b' || 'a' || 's' || 'e') {
       return type
-    } else {
-      return 'You must type one of the objects: b as building, a as antenna, s as span or e as earth';
-    }
+    } 
+      throw 'You must type one of the objects: b as building, a as antenna, s as span or e as earth';
   }
 
 }
