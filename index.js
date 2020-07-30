@@ -55,11 +55,11 @@ class VisitedPlaces {
 }
 
 const paloma = new Jumpers('paloma', 37, 'p@p.com', '123456', 2009, 'Ruy Fernandes', 'Ponde de Resende')
-const onca = new Objects('', 450, 'green grass')
+const onca = new Places('b', 450, 'green grass, with cows')
 
 paloma.addJump(200)
 paloma.addDiary('Kjerag') // returning undefined
-onca.addObject('resende')
+onca.addPlace('resende')
 
 console.log(paloma.jumps)
 console.log(onca.type)
