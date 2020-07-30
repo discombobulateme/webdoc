@@ -34,6 +34,7 @@ class Jumpers {
 class Places {
   constructor(type, height, landing) {
     this.type = type
+    this.coordinates = []
     this.height = height
     this.landing = landing
   }
@@ -41,19 +42,24 @@ class Places {
   addPlaces(type) {
     if (type === 'b' || 'a' || 's' || 'e') {
       return type
-    } else {
-      return 'You must type one of the objects: b as building, a as antenna, s as span or e as earth';
-    }
+    } 
+      throw 'You must type one of the objects: b as building, a as antenna, s as span or e as earth';
   }
 
 }
 
+class VisitedPlaces {
+  constructor() {
+    this.visit = visit
+  }
+}
+
 const paloma = new Jumpers('paloma', 37, 'p@p.com', '123456', 2009, 'Ruy Fernandes', 'Ponde de Resende')
-const onca = new Objects('', 450, 'green grass')
+const onca = new Places('b', 450, 'green grass, with cows')
 
 paloma.addJump(200)
 paloma.addDiary('Kjerag') // returning undefined
-onca.addObject('resende')
+onca.addPlace('resende')
 
 console.log(paloma.jumps)
 console.log(onca.type)
