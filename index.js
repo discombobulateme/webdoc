@@ -19,7 +19,7 @@ class VisitedPlaces {
 }
 
 const paloma = new Jumpers('paloma', 37, 'p@p.com', '123456', 2009, 'Ruy Fernandes', 'Ponde de Resende')
-const onca = new Places('b', 450, 'green grass, with cows')
+const kjerag = new Places('e', 450, 'green grass, with cows')
 
 paloma.addJump(200)
 paloma.addDiary('Kjerag') // returning undefined
