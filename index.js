@@ -1,3 +1,5 @@
+const Jumpers = require("./jumpers");
+const Places = require("./places");
 /*
 const paloma = {
   name: 'Paloma',
