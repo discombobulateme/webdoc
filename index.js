@@ -21,8 +21,9 @@ class VisitedPlaces {
 const paloma = new Jumpers('paloma', 37, 'p@p.com', '123456', 2009, 'Ruy Fernandes', 'Ponde de Resende')
 const kjerag = new Places('e', 450, 'green grass, with cows')
 
-paloma.addJump(200)
-onca.addPlace('resende')
+paloma.addJump(203);
+kjerag.addPlaces('Kjerag');
 
-console.log(paloma.jumps)
-console.log(onca.type)
+
+console.log(paloma.jumps);
+console.log(kjerag);
