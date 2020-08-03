@@ -27,3 +27,6 @@ kjerag.addPlaces('Kjerag');
 
 console.log(paloma.jumps);
 console.log(kjerag);
+
+// setter test not allowing to overwrite diary property
+// paloma.diary = "Uhu";
