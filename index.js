@@ -22,7 +22,6 @@ const paloma = new Jumpers('paloma', 37, 'p@p.com', '123456', 2009, 'Ruy Fernand
 const kjerag = new Places('e', 450, 'green grass, with cows')
 
 paloma.addJump(200)
-paloma.addDiary('Kjerag') // returning undefined
 onca.addPlace('resende')
 
 console.log(paloma.jumps)
