@@ -12,44 +12,6 @@ const paloma = {
 }
 */
 
-class Jumpers {
-  constructor(name, age, email, password, baseStart, instructor, places) {
-    this.name = name
-    this.age = age
-    this.email = email
-    this.password = password
-    this.baseStart = baseStart
-    this.instructor = instructor
-    this.places = places
-    this.jumps = []
-  }
-
-  addJump(jump) {
-    this.jumps.push(jump)
-  }
-
-  addDiary(diary) {
-    console.log(`I've just jumped out of ${diary}! This is my jump number ${this.jumps}`);
-  }
-}
-
-class Places {
-  constructor(type, height, landing) {
-    this.type = type
-    this.coordinates = []
-    this.height = height
-    this.landing = landing
-  }
-
-  addPlaces(type) {
-    if (type === 'b' || 'a' || 's' || 'e') {
-      return type
-    } 
-      throw 'You must type one of the objects: b as building, a as antenna, s as span or e as earth';
-  }
-
-}
-
 class VisitedPlaces {
   constructor() {
     this.visit = visit
