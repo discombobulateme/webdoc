@@ -1,7 +1,7 @@
 {
   "name": "base-webdoc",
   "version": "1.0.0",
-  "main": "src/modules/index.js",
+  "main": "src/models/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "lint-staged",
@@ -20,7 +20,7 @@
   "homepage": "https://github.com/discombobulateme/coyotivWebDocumentary#readme",
   "description": "",
   "devDependencies": {
-    "eslint": "^7.2.0",
+    "eslint": "^7.6.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
@@ -43,6 +43,7 @@
     ]
   },
   "dependencies": {
+    "express": "^4.17.1",
     "i18n": "^0.11.1"
   }
 }
