@@ -1,0 +1,64 @@
+@startuml Base Log
+Title Base Log
+
+class Jumper {
+id : uuidv4
+name : string
+password : string
+baseStart : string
+instructor : string
+places : [Place]
+age : string
+gender : string
+jumps : [Log.jumpNumber]
+
+constructor(id : uuidv4, name : string, email : string, password : string)
+
+' A jumper can have one or more histories
+addHistory(History)
+}
+
+' Place is static, works on it's own
+class Place {
+placeName : string
+type : string
+height : number
+coordinates : [number, number]
+landing : string
+}
+
+' History is what goes to the timeline
+class History {
+description: string
+' Instead of repeating the Log infos
+addLog(Log)
+}
+
+class Log {
+jumper : uuidv4
+year : Date
+' jumpNumber is a counter
+jumpNumber : number
+place: place
+
+constructor (jumper, year, jumpNumber, place)
+}
+
+' Head *- Hand : composition
+' Parent o-- IndependentChild : agregation
+' Need --> Use : association
+
+Jumper -> Place : nedd a place to jump
+Jumper *- Log : jumper's diary
+Jumper -> History : can have history
+
+History --> Log : need info from log
+
+Place -> Jumper : need jumper to have history
+Place --> History : history about a place
+
+
+@enduml
+
+
+
