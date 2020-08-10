@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/discombobulateme/coyotivWebDocumentary.git"
+    "url": "git+https://github.com/discombobulateme/webdoc.git"
   },
   "keywords": [],
   "author": "Paloma Oliveira",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/discombobulateme/coyotivWebDocumentary/issues"
+    "url": "https://github.com/discombobulateme/webdoc/issues"
   },
-  "homepage": "https://github.com/discombobulateme/coyotivWebDocumentary#readme",
+  "homepage": "https://github.com/discombobulateme/webdoc#readme",
   "description": "",
   "devDependencies": {
     "eslint": "^7.6.0",
