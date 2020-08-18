@@ -11,6 +11,7 @@ instructors : [Athlete]
 baseStart : string
 instructor : string
 places : [Place]
+age : number
 age : string
 gender : string
 jumps : [Log.jumpNumber]
