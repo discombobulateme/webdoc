@@ -57,14 +57,6 @@ howSupports : string
 
 Athlete *-- Place : nedd a place to jump
 Athlete *-- Jump : Partial history
-Jumper -> Place : nedd a place to jump
-Jumper *- Log : jumper's diary
-Jumper -> History : can have history
-
-History --> Log : need info from log
-
-Place -> Jumper : need jumper to have history
-Place --> History : history about a place
 
 Place -> Jump : need info from Jump
 Jump --> DiaryEntry : Full history
