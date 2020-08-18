@@ -36,7 +36,6 @@ class DiaryEntry {
   attachments: [Image | Video | Audio]
 }
 
-' Place is static, works on it's own
 class Place {
 placeName : string
 type : string
