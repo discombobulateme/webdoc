@@ -26,6 +26,17 @@ addJump(Jump)
 }
 ' A jumper can have one or more histories
 addHistory(History)
+class Jump {
+type: BASE
+athletes : [Athlete]
+place: Place
+date : Date
+' this is a sinopse
+description: string
+diaryEntries: [DiaryEntry]
+
+constructor (type : BASE, athletes : [], place : Place, date : Date)
+}
 }
 
 ' Place is static, works on it's own
