@@ -55,15 +55,6 @@ description: string
 ' Instead of repeating the Log infos
 addLog(Log)
 }
-
-class Log {
-jumper : uuidv4
-year : Date
-' jumpNumber is a counter
-jumpNumber : number
-place: place
-
-constructor (jumper, year, jumpNumber, place)
 }
 
 ' Head *- Hand : composition
