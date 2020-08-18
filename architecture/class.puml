@@ -6,7 +6,6 @@ name : string
 password : string
 email : string
 instructors : [Athlete]
-baseStart : string
 instructor : string
 places : [Place]
 age : number
