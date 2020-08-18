@@ -6,10 +6,8 @@ name : string
 password : string
 email : string
 instructors : [Athlete]
-instructor : string
 places : [Place]
 age : number
-age : string
 gender : string
 jumps : [Jump]
 jumps : [Log.jumpNumber]
