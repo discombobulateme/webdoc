@@ -1,0 +1,23 @@
+version: '3'
+services:
+  app:
+    image: webdoc
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      # - MONGODB_USERNAME=paloma
+      # - MONGODB_PASSWORD=3ILceJOf1IQQRHUB
+      # - MONGODB_DATABASE=paloma
+      - MONGODB_CONNECTION_STRING=mongodb://mongo/webdoc
+    ports:
+      - 3000:3000
+      - 35729:35729
+    volumes:
+      - ./src:/app/src
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ././data:/data:consistent
