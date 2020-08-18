@@ -37,6 +37,12 @@ diaryEntries: [DiaryEntry]
 
 constructor (type : BASE, athletes : [], place : Place, date : Date)
 }
+class DiaryEntry {
+  athlete: Athlete
+  jump: Jump
+  ' this is the full history text
+  text: string
+  attachments: [Image | Video | Audio]
 }
 
 ' Place is static, works on it's own
