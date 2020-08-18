@@ -6,6 +6,8 @@ class Jumper {
 id : uuidv4
 name : string
 password : string
+email : string
+instructors : [Athlete]
 baseStart : string
 instructor : string
 places : [Place]
