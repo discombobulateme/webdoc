@@ -49,12 +49,6 @@ class Supporter {
 place : Place
 people: []
 howSupports : string
-' History is what goes to the timeline
-class History {
-description: string
-' Instead of repeating the Log infos
-addLog(Log)
-}
 }
 
 ' Head *- Hand : composition
