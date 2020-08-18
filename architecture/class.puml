@@ -1,6 +1,7 @@
 @startuml Base Log
 Title Base Log
 
+class Athlete {
 class Jumper {
 id : uuidv4
 name : string
