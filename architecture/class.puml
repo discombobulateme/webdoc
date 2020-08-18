@@ -80,6 +80,8 @@ constructor (jumper, year, jumpNumber, place)
 ' Parent o-- IndependentChild : agregation
 ' Need --> Use : association
 
+Athlete *-- Place : nedd a place to jump
+Athlete *-- Jump : Partial history
 Jumper -> Place : nedd a place to jump
 Jumper *- Log : jumper's diary
 Jumper -> History : can have history
@@ -89,6 +91,10 @@ History --> Log : need info from log
 Place -> Jumper : need jumper to have history
 Place --> History : history about a place
 
+Place -> Jump : need info from Jump
+Jump --> DiaryEntry : Full history
+Jump -> Supporter : non athletes that supports the sport
+DiaryEntry -> Supporter : a history may not have supporters
 
 @enduml
 
