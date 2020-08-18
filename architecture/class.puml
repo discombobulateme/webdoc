@@ -54,6 +54,11 @@ coordinates : [number, number]
 landing : string
 }
 
+'non Athletes that supports the sport
+class Supporter {
+place : Place
+people: []
+howSupports : string
 ' History is what goes to the timeline
 class History {
 description: string
