@@ -47,7 +47,6 @@ landing : string
 
 'non Athletes that supports the sport
 class Supporter {
-place : Place
 people: []
 howSupports : string
 }
