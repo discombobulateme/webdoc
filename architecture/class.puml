@@ -26,7 +26,7 @@ date : Date
 description: string
 diaryEntries: [DiaryEntry]
 
-constructor (type : BASE, athletes : [], place : Place, date : Date)
+constructor (modality : BASE, athletes : [Athlete], place : Place, date : Date)
 }
 
 class DiaryEntry {
