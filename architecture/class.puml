@@ -7,6 +7,7 @@ password : string
 email : string
 instructors : [Athlete]
 places : [Place]
+
 age : number
 gender : string
 jumps : [Jump]
@@ -22,6 +23,7 @@ modality: BASE
 athletes : [Athlete]
 place: Place
 date : Date
+
 ' this is a sinopse
 description: string
 diaryEntries: [DiaryEntry]
