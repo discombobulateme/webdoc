@@ -55,8 +55,8 @@ howSupports : string
 ' Parent o-- IndependentChild : agregation
 ' Need --> Use : association
 
-Athlete *-- Place : nedd a place to jump
-Athlete *-- Jump : Partial history
+Athlete --> Place : nedd a place to jump
+Athlete -> Jump : Partial history
 
 Place -> Jump : need info from Jump
 Jump --> DiaryEntry : Full history
