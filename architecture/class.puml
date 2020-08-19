@@ -59,9 +59,9 @@ Athlete --> Place : nedd a place to jump
 Athlete -> Jump : Partial history
 
 Place -> Jump : need info from Jump
-Jump --> DiaryEntry : Full history
-Jump -> Supporter : non athletes that supports the sport
-DiaryEntry -> Supporter : a history may not have supporters
+Jump *-> DiaryEntry : Full history
+Jump --> Supporter : non athletes that supports the sport
+DiaryEntry --> Supporter : a history may not have supporters
 
 @enduml
 
