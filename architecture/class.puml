@@ -17,6 +17,7 @@ addJump(Jump)
 ' Verify: if that place exists
 ' Verify: if you are linked in date and place with a Jump
 }
+
 class Jump {
 type: BASE
 athletes : [Athlete]
@@ -28,6 +29,7 @@ diaryEntries: [DiaryEntry]
 
 constructor (type : BASE, athletes : [], place : Place, date : Date)
 }
+
 class DiaryEntry {
   athlete: Athlete
   jump: Jump
