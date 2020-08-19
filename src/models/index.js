@@ -1,5 +1,5 @@
-const Jumpers = require('./jumpers')
-const Places = require('./places')
+const Athlete = require('./athlete')
+const Place = require('./place')
 /*
 const paloma = {
   name: 'Paloma',
@@ -12,8 +12,8 @@ const paloma = {
 }
 */
 
-const paloma = new Jumpers('paloma', 37, 'p@p.com', '123456', 2009, 'Ruy Fernandes', 'Ponde de Resende')
-const kjerag = new Places('e', 450, 'green grass, with cows')
+const paloma = new Athlete('paloma', 37, 'p@p.com', '123456', 2009, 'Ruy Fernandes', 'Ponde de Resende')
+const kjerag = new Place('e', 450, 'green grass, with cows')
 
 paloma.addJump(203)
 kjerag.addPlaces('Kjerag')
