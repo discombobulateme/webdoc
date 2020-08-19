@@ -31,6 +31,7 @@ constructor (type : BASE, athletes : [], place : Place, date : Date)
 class DiaryEntry {
   athlete: Athlete
   jump: Jump
+  supporter: Supporter
   ' this is the full history text
   text: string
   attachments: [Image | Video | Audio]
