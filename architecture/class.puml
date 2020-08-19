@@ -49,7 +49,10 @@ landing : string
 
 'non Athletes that supports the sport
 class Supporter {
-people: []
+' a supporter can associate with a place or a person
+athlete: Athlete
+place : Place
+people : []
 howSupports : string
 }
 
