@@ -41,9 +41,9 @@ constructor (jump: Jump, text: String)
 
 class Place {
 placeName : string
-type : string
-height : number
 coordinates : [number, number]
+modality : []
+height : number
 landing : string
 }
 
