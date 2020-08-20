@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const jump = require('./jump')
+const jumpSchema = require('./jump')
 
 const diarySchema = new mongoose.Schema({
   jumps: {
