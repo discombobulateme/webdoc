@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
-const athlete = require('./athlete')
-const place = require('./place')
+const athleteSchema = require('./athlete')
+const placeSchema = require('./place')
 
 const supporterSchema = new mongoose.Schema({
   athlete: athleteSchema,
