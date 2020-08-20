@@ -1,0 +1,25 @@
+@startuml Write Code
+' this diagram shows the different states when you are acting on it
+' traffic light -> theres a sequence and an order
+' the events that happens depends on previous state: initial state -> event -> endstate
+
+state "Write code" as State1
+state "Push to github" as State2
+
+State1 --> State2 : Succeeded
+State1 --> [*]: Aborted
+State2 --> State3: Delivery : Succeded
+State2 --> [*]: Aborted
+
+state Delivery {
+  Test: Just a test
+  [*] --> Test
+  Test --> DeploymentState : tests passed
+}
+
+Delivery --> Delivery : Failed
+Delivery --> Producction: Deployment succeded
+
+Production -right-> [*] : Succeded
+
+@enduml

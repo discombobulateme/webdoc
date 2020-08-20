@@ -1,0 +1,37 @@
+@startuml
+
+' this diagram is super special and important
+' a series of actions for software
+' relates class diagram with activity diagram
+
+actor User
+participant "Athlete Class" as A
+participant "Jumper Class" as B
+participant "Place Class" as C
+participant "DiaryEntry Class" as D
+participant "Supporter Class" as E
+
+User -> A: Do some work
+activate A
+A -> B: Create a request
+activate B
+
+... uploading ...
+
+B -> C: doWork()
+activate C
+
+... elapsed time ...
+
+C --> B: Work done!
+deactivate C
+
+B --> A: Request created
+deactivate B
+
+A -> A: do some internal work
+
+A --> User: Done
+deactivate A
+
+@enduml
