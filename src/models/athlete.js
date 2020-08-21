@@ -14,10 +14,12 @@ const athleteSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  instructor: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Athlete',
-  },
+  instructors: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Athlete',
+    },
+  ],
   jumps: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -39,6 +41,10 @@ const athleteSchema = new mongoose.Schema({
 
   age: Number,
   gender: String,
+
+  addJumpLog(log) {
+    this.logs.push(log)
+  },
 })
 
 module.exports = mongoose.model('Athlete', athleteSchema)
