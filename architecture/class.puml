@@ -6,6 +6,8 @@ name : string
 password : string
 email : string
 instructors : [Athlete]
+jumps : [Jump]
+jumpLogs : [JumpLog]
 places : [Place]
 
 age : number
@@ -14,6 +16,8 @@ gender : string
 jumps : [Jump]
 ' my unique jumps logs
 jumpLogs: [JumpLog]
+
+addJumpLog(log : JumpLog)
 
 constructor(name : string, email : string, password : string, instructor : [], places : [])
 }
@@ -45,11 +49,12 @@ constructor (jump: Jump, text: String)
 }
 
 class Place {
-placeName : string
+name : string
 coordinates : [number, number]
 modality : []
 height : number
 landing : string
+supporter: Supporter
 }
 
 'non Athletes that supports the sport
