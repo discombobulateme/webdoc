@@ -10,7 +10,10 @@ places : [Place]
 
 age : number
 gender : string
+' record of the jumps user did, has more than 1 log
 jumps : [Jump]
+' my unique jumps logs
+jumpLogs: [JumpLog]
 
 constructor(name : string, email : string, password : string, instructor : [], places : [])
 }
@@ -26,12 +29,12 @@ date : Date
 
 ' this is a sinopse
 description: string
-diaryEntries: [DiaryEntry]
+logs: [JumpLog]
 
 constructor (modality : BASE, athletes : [Athlete], place : Place, date : Date)
 }
 
-class DiaryEntry {
+class JumpLog {
 jump: Jump
 ' this is the full history text
 text: string
