@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 
-const modality = require('./jump')
-
 const placeSchema = new mongoose.Schema({
-  placeName: String,
+  name: String,
   coordinates: [Number, Number],
+  // Remember to update also im Jump, if change is needed
   modality: {
-    jumpSchema: { modality },
+    enum: ['B', 'A', 'S', 'E', 'b', 'a', 's', 'e'],
+    message: 'Status is required.',
   },
   height: Number,
   landing: String,

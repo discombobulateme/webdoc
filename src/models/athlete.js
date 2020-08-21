@@ -1,8 +1,5 @@
 const mongoose = require('mongoose')
 
-const jump = require('./jump')
-const place = require('./place')
-
 const athleteSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -18,16 +15,27 @@ const athleteSchema = new mongoose.Schema({
     required: true,
   },
   instructor: {
-    athlete: athleteSchema,
-    required: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Athlete',
   },
-  jumps: {
-    jump: jumpSchema,
-    required: true,
-  },
-  places: {
-    place: placeSchema,
-  },
+  jumps: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Jump',
+    },
+  ],
+  jumpLogs: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'JumpLog',
+    },
+  ],
+  places: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Place',
+    },
+  ],
 
   age: Number,
   gender: String,

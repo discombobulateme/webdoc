@@ -1,12 +1,25 @@
 const mongoose = require('mongoose')
 
-const athleteSchema = require('./athlete')
-const placeSchema = require('./place')
-
 const supporterSchema = new mongoose.Schema({
-  athlete: athleteSchema,
-  place: placeSchema,
-  people: [],
+  athletes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Athlete',
+    },
+  ],
+  places: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Place',
+    },
+  ],
+  // This is a child
+  people: [
+    {
+      name: String,
+      age: Number,
+    },
+  ],
   howSupports: String,
 })
 
