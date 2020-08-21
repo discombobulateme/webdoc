@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watchAll",
     "lint": "lint-staged",
     "start": "node ./bin/www"
   },
@@ -18,12 +18,12 @@
     "url": "https://github.com/discombobulateme/webdoc/issues"
   },
   "homepage": "https://github.com/discombobulateme/webdoc#readme",
-  "description": "",
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "jest": "^26.4.1",
     "mongoose": "^5.10.0",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11"
@@ -41,14 +41,16 @@
     "prettier": "^2.0.5"
   },
   "husky": {
-   "hooks": {
-     "pre-commit": "npm run lint"
-   }
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "lint-staged": {
     "./**/*.js": [
       "prettier --write",
       "eslint --fix"
     ]
-  }
+  },
+  "main": "index.js",
+  "description": ""
 }
