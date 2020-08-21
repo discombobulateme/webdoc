@@ -4,7 +4,7 @@ const JumpLog = require('./jump-log')
 const Place = require('./place')
 const Supporter = require('./supporter')
 
-const exit5 = new Jump('B', 'Kjerag', '15.07.2020', 'Classic Norwegian mountain')
+const exit5 = new Jump('B', 'Kjerag', new Date(), 'Classic Norwegian mountain')
 const jump200 = new JumpLog(exit5, 'This was an amazing jump, a 2 way with Rima')
 const kjerag = new Place(
   'Lysebotn',
