@@ -41,10 +41,16 @@ const athleteSchema = new mongoose.Schema({
 
   age: Number,
   gender: String,
-
-  addJumpLog(log) {
-    this.logs.push(log)
-  },
 })
+class Athlete {
+  async addJumpLog(log) {
+    this.logs.push(log)
+
+    await log.save()
+    await this.save()
+  }
+}
+
+athleteSchema.loadClass(Athlete)
 
 module.exports = mongoose.model('Athlete', athleteSchema)
