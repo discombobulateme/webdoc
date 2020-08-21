@@ -10,6 +10,12 @@ const placeSchema = new mongoose.Schema({
   },
   height: Number,
   landing: String,
+  supporters: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Supporter',
+    },
+  ],
 })
 
 module.exports = mongoose.model('Place', placeSchema)
