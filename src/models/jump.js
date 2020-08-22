@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 const jumpSchema = new mongoose.Schema({
   modality: {
+    type: String,
     enum: ['B', 'A', 'S', 'E', 'b', 'a', 's', 'e'],
     message: 'Status is required.',
     required: true,
