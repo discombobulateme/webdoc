@@ -55,6 +55,7 @@ modality : []
 height : number
 landing : string
 supporter: Supporter
+'add child: exitPoint
 }
 
 'non Athletes that supports the sport
