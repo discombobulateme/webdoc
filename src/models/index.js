@@ -13,24 +13,38 @@ Jump.create({
   logs: [],
 })
 
-const jump200 = new JumpLog(Jump, 'This was an amazing jump, a 2 way with Rima')
-const kjerag = new Place(
-  'Lysebotn',
-  [59.034669, 6.5599697],
-  'e',
-  1000,
-  'small gras with lots of rocks or nord sea water'
-)
-const paloma = new Athlete('paloma', '123', 'p@p.com', ['ruy', 'poncho'], Jump, jump200, kjerag, 37, 'she', 'hello')
-const olav = new Supporter(
-  paloma,
-  kjerag,
-  ['Olav', 'Kristina', 'Stein'],
-  'offers different places to stay, from camping to hotel, food and work exchange among jumpers'
-)
+JumpLog.create({
+  jump: Jump,
+  text: 'This was an amazing jump, a 2 way with Rima',
+  attachments: [],
+})
+
+Place.create({
+  name: 'Lysebotn',
+  coordinates: [59.034669, 6.5599697],
+  modality: 'e',
+  height: 1000,
+  landing: 'small gras with lots of rocks or nord sea water',
+  supporter: Supporter,
+})
+
+Athlete.create({
+  name: 'paloma',
+  password: '123',
+  email: 'p@p.com',
+  athletes: ['Ruy Fernandes', 'Caco'],
+  jump: Jump,
+  jumpLogs: JumpLog,
+  places: ['Lysebotn', 'Pedra de Onça'],
+  age: 37,
+  gender: 'she',
+})
+
+Supporter.create({
+  athlete: Athlete,
+  place: Place,
+  people: ['Olav', 'Kristina', 'Stein'],
+  howSupports: 'offers different places to stay, from camping to hotel, food and work exchange among jumpers',
+})
 
 console.log(Jump)
-console.log(jump200)
-console.log(kjerag)
-console.log(paloma)
-console.log(olav)
