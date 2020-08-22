@@ -4,15 +4,6 @@ const JumpLog = require('./jump-log')
 const Place = require('./place')
 const Supporter = require('./supporter')
 
-Jump.create({
-  modality: 'B',
-  athletes: [],
-  place: 'Kjerag',
-  date: new Date(),
-  description: 'Classic Norwegian mountain',
-  logs: [],
-})
-
 JumpLog.create({
   jump: Jump,
   text: 'This was an amazing jump, a 2 way with Rima',
