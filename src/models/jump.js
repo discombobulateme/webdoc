@@ -13,7 +13,7 @@ const jumpSchema = new mongoose.Schema({
     },
   ],
   date: {
-    date: Date,
+    type: Date,
     required: true,
   },
   place: {
