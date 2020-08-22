@@ -1,6 +1,11 @@
 const mongoose = require('mongoose')
 
 const jumpLogSchema = new mongoose.Schema({
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Athlete',
+    required: true,
+  },
   jumps: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Jump',
