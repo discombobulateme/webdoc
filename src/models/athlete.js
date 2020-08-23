@@ -20,6 +20,18 @@ const athleteSchema = new mongoose.Schema({
       ref: 'Athlete',
     },
   ],
+  jumps: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Jump',
+    },
+  ],
+  jumpLogs: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'JumpLog',
+    },
+  ],
   age: Number,
   gender: String,
 })
