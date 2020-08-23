@@ -26,13 +26,10 @@ name : string
 password : string
 email : string
 instructors : [Athlete]
+jumps : [Jump]
+jumpLogs : [JumpLog]
 age : number
 gender : string
-
-' record of the jumps user did, can meet others
-'addJump(jump)
-' my unique jumps logs
-'addJumpLog(log : JumpLog)
 
 constructor(name : string, email : string, password : string, instructor : [], places : [])
 }
