@@ -31,7 +31,7 @@ jumpLogs : [JumpLog]
 age : number
 gender : string
 
-constructor(name : string, email : string, password : string, instructor : [], places : [])
+constructor(name : string, email : string, password : string)
 }
 
 class Jump {
@@ -51,10 +51,10 @@ constructor (modality : BASE, athletes : [Athlete], place : Place, date : Date)
 }
 
 class JumpLog {
+owner: Athlete
 jump: Jump
 ' this is the full history text
 text: string
-
 attachments: [Image | Video | Audio]
 
 constructor (jump: Jump, text: String)
