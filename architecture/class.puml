@@ -1,23 +1,38 @@
 @startuml Base Log
 Title Base Log
 
+'non Athletes that supports the sport
+class Supporter {
+' a supporter can associate with a place or a person
+people : [{
+  name: string
+  age: number
+}]
+howSupports : string
+}
+
+class Place {
+name : string
+coordinates : [number, number]
+modality : []
+height : number
+landing : string
+supporter: Supporter
+'add child: exitPoint
+}
+
 class Athlete {
 name : string
 password : string
 email : string
 instructors : [Athlete]
-jumps : [Jump]
-jumpLogs : [JumpLog]
-places : [Place]
-
 age : number
 gender : string
-' record of the jumps user did, has more than 1 log
-jumps : [Jump]
-' my unique jumps logs
-jumpLogs: [JumpLog]
 
-addJumpLog(log : JumpLog)
+' record of the jumps user did, can meet others
+'addJump(jump)
+' my unique jumps logs
+'addJumpLog(log : JumpLog)
 
 constructor(name : string, email : string, password : string, instructor : [], places : [])
 }
@@ -48,25 +63,7 @@ attachments: [Image | Video | Audio]
 constructor (jump: Jump, text: String)
 }
 
-class Place {
-name : string
-coordinates : [number, number]
-modality : []
-height : number
-landing : string
-supporter: Supporter
-'add child: exitPoint
-}
 
-'non Athletes that supports the sport
-class Supporter {
-' a supporter can associate with a place or a person
-people : [{
-  name: string
-  age: number
-}]
-howSupports : string
-}
 
 ' Head *- Hand : composition
 ' Parent o-- IndependentChild : agregation
