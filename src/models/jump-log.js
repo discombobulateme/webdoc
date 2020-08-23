@@ -6,7 +6,7 @@ const jumpLogSchema = new mongoose.Schema({
     ref: 'Athlete',
     required: true,
   },
-  jumps: {
+  jump: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Jump',
     required: true,
