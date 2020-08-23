@@ -61,8 +61,6 @@ supporter: Supporter
 'non Athletes that supports the sport
 class Supporter {
 ' a supporter can associate with a place or a person
-athlete: Athlete
-place : Place
 people : [{
   name: string
   age: number
