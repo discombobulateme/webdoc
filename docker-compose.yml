@@ -6,7 +6,7 @@ services:
       context: frontend
       dockerfile: Dockerfile
     ports:
-      - 8080:8080
+      - 8080
     volumes:
       - ./frontend/src:/app/src
   backend:
@@ -19,8 +19,12 @@ services:
       # - MONGODB_PASSWORD=3ILceJOf1IQQRHUB
       # - MONGODB_DATABASE=paloma
       - MONGODB_CONNECTION_STRING=mongodb://mongo/webdoc
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=(Host(`picories.localhost`) && PathPrefix(`/api`))"
+      - "traefik.http.routers.backend.entrypoints=web"
     ports:
-      - 3000:3000
+      - 3000
       - 35729:35729
     volumes:
       - ./backend/src:/app/src
@@ -28,3 +32,15 @@ services:
     image: mongo
     ports:
       - 27017:27017
+  load-balancer:
+    image: traefik:v2.2
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
