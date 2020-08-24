@@ -1,0 +1,21 @@
+@startuml Register new user
+
+[*] --> Register: Create a seu User
+NewProfile --> AddEmail : required
+AddEmail --> SendEmailToUserVerifyAccount : verify if user exists
+SendEmailToUserVerifyAccount -> UserConfirmEmail : confirm that user exists
+
+[*] -> SignIn: Sign in into platform
+UserSignIn --> UserChangePassword : user setup profile
+UserChangePassword --> AddFieldsToVerifyAthlete : add infos to confirm as an athlete
+AddFieldsToVerifyAthlete --> AddInstructor : add instructor(s) infos
+AddInstructor -> InstructorConfirmMentee : instructor(s) validates user
+InstructorConfirmMentee --> UserBecomeAthlete : user can add jumps and add stories
+
+[*] --> VerifiedUser: Validates if this user is an athlete
+Athlete -> AddJump : validated user add a jump
+AddJump --> AddModality : add if is: B,A,S or E
+AddJump --> AddOtherAthlete : add more athletes into Jump
+AddJump --> AddPlace : add a place into Jump
+
+@enduml

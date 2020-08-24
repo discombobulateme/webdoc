@@ -1,0 +1,28 @@
+@startuml
+
+left to right direction
+
+skinparam Shadowing false
+skinparam Monochrome false
+' skinparam PackageStyle rectangle
+
+
+actor "A webdoc navigator User" as user
+actor "A webdoc history creator" as creator
+
+package "Navigator" {
+  usecase "Navigate histories through modalities" as UC1
+  usecase "Navigate histories through athletes" as UC2
+  usecase "Navigate histories through time" as UC3
+}
+
+package "Creator" {
+  usecase "Create a history" as UC4
+}
+
+user --> UC1
+user --> UC2
+user --> UC3
+creator --> UC4
+
+@enduml

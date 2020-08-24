@@ -1,0 +1,28 @@
+@startuml
+
+' what happens when a jump whants to happen?
+start
+
+:Jump as an ide: someone wishes to jump;
+:Atheltes register for the jump;
+:a Place is found;
+if (needs Supporter) then (yes)
+  :find Supporter;
+  : jump with Supporter;
+else (no)
+  :jump without Supporter;
+endif
+
+:Athletes goes to the Place;
+if (Athlete jumps) then (yes)
+  :Athlete logs a jump into JumpLog;
+  :JumpLog is added into history navigation front-end;
+else (no)
+  repeat
+    :goes back to idealize a jump;
+  repeat while (JumpLog)
+  :Athelete jumps and add info to JumpLog;
+endif
+stop
+
+@enduml

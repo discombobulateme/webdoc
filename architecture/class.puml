@@ -1,0 +1,80 @@
+@startuml Base Log
+Title Base Log
+
+'non Athletes that supports the sport
+class Supporter {
+' a supporter can associate with a place or a person
+people : [{
+  name: string
+  age: number
+}]
+howSupports : string
+}
+
+class Place {
+name : string
+coordinates : [number, number]
+modality : []
+height : number
+landing : string
+supporter: Supporter
+'add child: exitPoint
+}
+
+class Athlete {
+name : string
+password : string
+email : string
+instructors : [Athlete]
+jumps : [Jump]
+jumpLogs : [JumpLog]
+age : number
+gender : string
+
+constructor(name : string, email : string, password : string)
+}
+
+class Jump {
+' addJump(Jump)
+' Verify: if that place exists
+' Verify: if you are linked in date and place with a Jump
+modality: BASE
+athletes : [Athlete]
+place: Place
+date : Date
+
+' this is a sinopse
+description: string
+logs: [JumpLog]
+
+constructor (modality : BASE, athletes : [Athlete], place : Place, date : Date)
+}
+
+class JumpLog {
+owner: Athlete
+jump: Jump
+' this is the full history text
+text: string
+attachments: [Image | Video | Audio]
+
+constructor (jump: Jump, text: String)
+}
+
+
+
+' Head *- Hand : composition
+' Parent o-- IndependentChild : agregation
+' Need --> Use : association
+
+Athlete --> Place : nedd a place to jump
+Athlete -> Jump : Partial history
+
+Place -> Jump : need info from Jump
+Jump *-> DiaryEntry : Full history
+Jump --> Supporter : non athletes that supports the sport
+DiaryEntry --> Supporter : a history may not have supporters
+
+@enduml
+
+
+

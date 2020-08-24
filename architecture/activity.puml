@@ -1,0 +1,21 @@
+@startuml
+
+' this diagram is for business
+start
+
+:Highlight hotspots: BASE, timeline or perceptions;
+:Highlight perceptions: audio, text, images, diagrams;
+:Explain how to navigate;
+:Start user navigation;
+if (User interacts?) then (yes)
+  :Go to where user decided;
+else (no)
+  repeat
+    :Start auto-navigation (random perception type);
+    :Explain how to navigate;
+  repeat while (passiv user?)
+  :User starts to interact;
+endif
+stop
+
+@enduml
