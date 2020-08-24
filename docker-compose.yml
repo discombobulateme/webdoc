@@ -1,9 +1,18 @@
-version: '3'
+version: "3"
 services:
-  app:
-    image: webdoc
+  frontend:
+    image: frontend
     build:
-      context: .
+      context: frontend
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - ./frontend/src:/app/src
+  backend:
+    image: backend
+    build:
+      context: backend
       dockerfile: Dockerfile
     environment:
       # - MONGODB_USERNAME=paloma
@@ -14,10 +23,8 @@ services:
       - 3000:3000
       - 35729:35729
     volumes:
-      - ./src:/app/src
+      - ./backend/src:/app/src
   mongo:
     image: mongo
     ports:
       - 27017:27017
-    volumes:
-      - ././data:/data:consistent
