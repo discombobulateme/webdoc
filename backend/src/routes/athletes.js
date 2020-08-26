@@ -5,7 +5,7 @@ const router = express.Router()
 // const Athlete = require('../models/athlete')
 
 /* GET athletes listing. */
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   // const paloma = await Athlete.create({ name: 'paloma', password: '123', email: 'p@p.com' })
   res.send('Here is the Athletes Page!!!')
 })
