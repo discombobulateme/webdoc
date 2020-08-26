@@ -41,11 +41,11 @@ const athleteSchema = new mongoose.Schema({
   gender: String,
 })
 class Athlete {
-  async jump(modality, date, place) {
+  async jump(modality, place) {
     const jump = await Jump.create({
       name: this,
       modality,
-      date,
+      // date,
       place,
     })
 
