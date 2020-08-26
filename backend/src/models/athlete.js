@@ -1,4 +1,8 @@
 const mongoose = require('mongoose')
+const autopopulate = require('mongoose-autopopulate')
+
+const Jump = require('./jump')
+const JumpLog = require('./jump-log')
 
 const athleteSchema = new mongoose.Schema({
   name: {
@@ -24,6 +28,7 @@ const athleteSchema = new mongoose.Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Jump',
+      autopopulate: { maxDepth: 3 },
     },
   ],
   jumpLogs: [
@@ -36,14 +41,31 @@ const athleteSchema = new mongoose.Schema({
   gender: String,
 })
 class Athlete {
-  async addJumpLog(log) {
-    this.logs.push(log)
+  async jump(modality, date, place) {
+    const jump = await Jump.create({
+      name: this,
+      modality,
+      date,
+      place,
+    })
 
-    await log.save()
+    await jump.save()
+    await this.save()
+  }
+
+  async jumpLog(jump) {
+    const jumpLog = await JumpLog.create({
+      name: this,
+      jump,
+    })
+    this.jumpLogs.push(jumpLog)
+
+    await jumpLog.save()
     await this.save()
   }
 }
 
 athleteSchema.loadClass(Athlete)
+athleteSchema.plugin(autopopulate)
 
 module.exports = mongoose.model('Athlete', athleteSchema)
