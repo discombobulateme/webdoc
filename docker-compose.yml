@@ -5,12 +5,15 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile
-    environment:
-      - CHOKIDAR_USEPOLLING=true
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=Host(`webdoc.localhost`)"
+      - "traefik.http.routers.frontend.entrypoints=web"
     ports:
       - 8080
     volumes:
       - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
   backend:
     image: backend
     build:
@@ -23,7 +26,7 @@ services:
       - MONGODB_CONNECTION_STRING=mongodb://mongo/webdoc
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.backend.rule=(Host(`picories.localhost`) && PathPrefix(`/api`))"
+      - "traefik.http.routers.backend.rule=(Host(`webdoc.localhost`) && PathPrefix(`/api`))"
       - "traefik.http.routers.backend.entrypoints=web"
     ports:
       - 3000
