@@ -7,14 +7,9 @@ const jumpSchema = new mongoose.Schema({
     message: 'Status is required.',
     required: true,
   },
-  athletes: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Athlete',
-    },
-  ],
   date: {
     type: Date,
+    default: new Date(),
     required: true,
   },
   place: {
@@ -22,6 +17,12 @@ const jumpSchema = new mongoose.Schema({
     ref: 'Place',
     required: true,
   },
+  athletes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Athlete',
+    },
+  ],
   description: String,
   logs: [
     {
