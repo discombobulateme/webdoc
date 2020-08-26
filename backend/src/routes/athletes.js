@@ -12,7 +12,7 @@ router.get('/initialize', async (req, res, next) => {
   console.log('***** initializing *****')
   const paloma = { name: 'paloma', password: '123', email: 'p@p.com', age: 37 }
 
-  await paloma.jump('E', Date, 'Kjerag')
+  await paloma.jump
 
   res.send('Athletes page happy')
 })
