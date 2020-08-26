@@ -10,7 +10,7 @@ const jumpSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: new Date(),
-    required: true,
+    // required: true,
   },
   place: {
     type: mongoose.Schema.Types.ObjectId,
