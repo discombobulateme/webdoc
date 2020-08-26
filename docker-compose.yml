@@ -23,7 +23,7 @@ services:
       - MONGODB_CONNECTION_STRING=mongodb://mongo/webdoc
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.backend.rule=(Host(`picories.localhost`) && PathPrefix(`/api`))"
+      - "traefik.http.routers.backend.rule=(Host(`webdoc.localhost`) && PathPrefix(`/api`))"
       - "traefik.http.routers.backend.entrypoints=web"
     ports:
       - 3000
