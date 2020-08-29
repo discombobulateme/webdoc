@@ -48,6 +48,8 @@ description: string
 logs: [JumpLog]
 
 constructor (modality : BASE, athletes : [Athlete], place : Place, date : Date)
+
+jump(modality: BASE, place : string)
 }
 
 class JumpLog {
