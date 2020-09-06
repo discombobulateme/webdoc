@@ -2,6 +2,9 @@ const express = require('express')
 
 const router = express.Router()
 const Athlete = require('../models/athlete')
+const Jump = require('../models/jump')
+const Place = require('../models/place')
+// const JumpLog = require('../models/jump-log')
 
 /* GET athletes listing. */
 router.get('/', async (req, res) => {
