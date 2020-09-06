@@ -12,8 +12,6 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/initialize', async (req, res) => {
-  console.log('***** initializing *****')
-
   const palomaObj = { name: 'paloma', password: '123', email: 'p@p.com', age: 37 }
   const kimObj = { name: 'kim', password: '123', email: 'k@k.com', age: 40 }
   const juliaObj = { name: 'julia', password: '123', email: 'j@j.com', age: 35 }
