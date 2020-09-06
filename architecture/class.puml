@@ -32,17 +32,19 @@ age : number
 gender : string
 
 constructor(name : string, email : string, password : string)
+
+jump(jump)
+logJump(jump, text)
 }
 
 class Jump {
-' addJump(Jump)
 ' Verify: if that place exists
 ' Verify: if you are linked in date and place with a Jump
 modality: BASE
-athletes : [Athlete]
+owner: Athlete
 place: Place
 date : Date
-
+athletes : [Athlete]
 ' this is a sinopse
 description: string
 logs: [JumpLog]
@@ -59,7 +61,7 @@ jump: Jump
 text: string
 attachments: [Image | Video | Audio]
 
-constructor (jump: Jump, text: String)
+constructor (owner: Athlete, jump: Jump, text: String)
 }
 
 
@@ -70,11 +72,12 @@ constructor (jump: Jump, text: String)
 
 Athlete --> Place : nedd a place to jump
 Athlete -> Jump : Partial history
+Athlete *- JumpLog : Athelete's personal history
 
 Place -> Jump : need info from Jump
-Jump *-> DiaryEntry : Full history
+Jump *-> JumpLog : Full history
 Jump --> Supporter : non athletes that supports the sport
-DiaryEntry --> Supporter : a history may not have supporters
+JumpLog --> Supporter : a history may not have supporters
 
 @enduml
 
