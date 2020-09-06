@@ -48,10 +48,11 @@ class Athlete {
     await this.save()
   }
 
-  async jumpLog(jump) {
+  async logJump(jump, text) {
     const jumpLog = await JumpLog.create({
-      name: this,
+      owner: this,
       jump,
+      text,
     })
     this.jumpLogs.push(jumpLog)
 
