@@ -1,7 +1,10 @@
 const mongoose = require('mongoose')
 
 const placeSchema = new mongoose.Schema({
-  name: String,
+  name: {
+    type: String,
+    required: true,
+  },
   coordinates: [Number, Number],
   // Remember to update also im Jump, if change is needed
   modality: {
