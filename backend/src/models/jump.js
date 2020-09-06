@@ -7,6 +7,11 @@ const jumpSchema = new mongoose.Schema({
     message: 'Status is required.',
     required: true,
   },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Athlete',
+    required: true,
+  },
   date: {
     type: Date,
     default: new Date(),
