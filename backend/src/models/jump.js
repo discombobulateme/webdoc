@@ -12,15 +12,15 @@ const jumpSchema = new mongoose.Schema({
     ref: 'Athlete',
     required: true,
   },
-  date: {
-    type: Date,
-    default: new Date(),
-    // required: true,
-  },
   place: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Place',
     required: true,
+  },
+  date: {
+    type: Date,
+    default: new Date(),
+    // required: true,
   },
   athletes: [
     {
