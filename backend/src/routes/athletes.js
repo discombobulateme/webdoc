@@ -12,6 +12,9 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/initialize', async (req, res) => {
+  const paloma = await Athlete.create({ name: 'paloma', password: '123', email: 'p@p.com', age: 37 })
+  const kim = await Athlete.create({ name: 'kim', password: '123', email: 'k@k.com', age: 40 })
+  const julia = await Athlete.create({ name: 'julia', password: '123', email: 'j@j.com', age: 35 })
 
   const palomasJump = await paloma.jump('E', 'Kjerag')
 
