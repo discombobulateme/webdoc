@@ -1,6 +1,7 @@
 const express = require('express')
 
 const router = express.Router()
+
 const Athlete = require('../models/athlete')
 const Jump = require('../models/jump')
 const Place = require('../models/place')
@@ -16,9 +17,14 @@ router.get('/initialize', async (req, res) => {
   const kim = await Athlete.create({ name: 'kim', password: '123', email: 'k@k.com', age: 40 })
   const julia = await Athlete.create({ name: 'julia', password: '123', email: 'j@j.com', age: 35 })
 
+  const kjerag = await Place.create({ name: 'Kjerag', modality: 'E' })
+  const palomasJump = await Jump.create({ modality: 'E', place: kjerag, owner: paloma })
 
+  await paloma.jump(palomasJump)
   await kim.jump(palomasJump)
   await julia.jump(palomasJump)
+
+  await paloma.logJump(palomasJump, 'That was fabulous!')
 
   res.send('Athletes page happy')
 })
