@@ -1,18 +1,29 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <img alt="gato" src="../assets/gato.jpg" />
+    <Athlete v-for="athlete in athletes" :key="athlete._id" :athlete="athlete" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import axios from 'axios'
+import Athlete from '@/components/athlete.vue'
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
-    HelloWorld
+    Athlete,
+    Jump
+  },
+  data() {
+    return {
+      athletes: []
+    }
+  },
+  async created() {
+    const athletesRequest = await axios.get('/api/athletes')
+    this.athletes = athletesRequest.data
   }
-};
+}
 </script>

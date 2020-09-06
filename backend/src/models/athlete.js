@@ -41,26 +41,22 @@ const athleteSchema = new mongoose.Schema({
   gender: String,
 })
 class Athlete {
-  async jump(modality, date, place) {
-    const jump = await Jump.create({
-      name: this,
-      modality,
-      date,
-      place,
-    })
-
+  async jump(jump) {
+    this.jumps.push(jump)
+    jump.athletes.push(this)
     await jump.save()
     await this.save()
   }
 
-  async jumpLog(jump) {
-    const jumpLog = await JumpLog.create({
-      name: this,
+  async logJump(jump, text) {
+    const logJump = await JumpLog.create({
+      owner: this,
       jump,
+      text,
     })
-    this.jumpLogs.push(jumpLog)
+    this.logJumps.push(logJump)
 
-    await jumpLog.save()
+    await logJump.save()
     await this.save()
   }
 }
