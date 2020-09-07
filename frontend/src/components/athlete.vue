@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ athelte.name }} @{{ athlete.email }}</h1>
     <ul id="jumps">
-      <Tweet v-for="jump in athlete.jumps" :key="jump._id" :jump="jump" />
+      <Jump v-for="jump in athlete.jumps" :key="jump._id" :jump="jump" />
     </ul>
   </div>
 </template>
