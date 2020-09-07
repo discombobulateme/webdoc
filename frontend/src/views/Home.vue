@@ -13,8 +13,7 @@ import Athlete from '@/components/athlete.vue'
 export default {
   name: 'Home',
   components: {
-    Athlete,
-    Jump
+    Athlete
   },
   data() {
     return {
