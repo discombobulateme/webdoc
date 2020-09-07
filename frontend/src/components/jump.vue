@@ -6,8 +6,6 @@
 </template>
 
 <script>
-import Jump from './jump'
-
 export default {
   name: 'Jump',
   props: ['jump']
