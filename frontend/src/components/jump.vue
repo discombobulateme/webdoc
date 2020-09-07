@@ -1,7 +1,7 @@
 <template>
   <li>
     <p v-if="jump.place">{{ jump.owner }} jumped with {{ jump.athletes }}</p>
-    <p>Jumps: {{ jump.length }}, Athletes: {{ athletes.length }}</p>
+    <p>Jumps: {{ jump.place }}, Athletes: {{ jump.athletes.length }}</p>
     <p>About the jump: {{ jump.description }}</p>
   </li>
 </template>
