@@ -28,13 +28,14 @@ const athleteSchema = new mongoose.Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Jump',
-      autopopulate: { maxDepth: 3 },
+      autopopulate: true,
     },
   ],
   jumpLogs: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'JumpLog',
+      autopopulate: true,
     },
   ],
   age: Number,
