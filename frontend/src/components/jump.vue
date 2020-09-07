@@ -2,6 +2,7 @@
   <li>
     <p v-if="jump.place">{{ athlete.name }} jumped with {{ athlete.age }}</p>
     <p>Jumps: {{ jump.length }}, Athletes: {{ athletes.length }}</p>
+    <p>About the jump: {{ jump.description }}</p>
   </li>
 </template>
 
