@@ -1,6 +1,6 @@
 <template>
-  <div class="hello">
-    <h1>{{ athelte.name }} @{{ athlete.email }}</h1>
+  <div class="athlete">
+    <h1>{{ athlete.name }} @{{ athlete.email }}</h1>
     <ul id="jumps">
       <Jump v-for="jump in athlete.jumps" :key="jump._id" :jump="jump" />
     </ul>
