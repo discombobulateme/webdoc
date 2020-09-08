@@ -13,9 +13,18 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/initialize', async (req, res) => {
-  const paloma = await Athlete.create({ name: 'paloma', password: '123', email: 'p@p.com', age: 37 })
-  const kim = await Athlete.create({ name: 'kim', password: '123', email: 'k@k.com', age: 40 })
-  const julia = await Athlete.create({ name: 'julia', password: '123', email: 'j@j.com', age: 35 })
+  // this format is required to use passport middleware
+  const paloma = new Athlete({ name: 'paloma', age: 37, email: 'p@p.com' })
+  await paloma.setPassword('test')
+  await paloma.save()
+
+  const kim = new Athlete({ name: 'kim', age: 42, email: 'k@k.com' })
+  await kim.setPassword('test')
+  await kim.save()
+
+  const julia = new Athlete({ name: 'julia', age: 35, email: 'j@j.com' })
+  await julia.setPassword('test')
+  await julia.save()
 
   const kjerag = await Place.create({ name: 'Kjerag', modality: 'E' })
   const palomasJump = await Jump.create({
