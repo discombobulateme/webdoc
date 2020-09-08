@@ -57,8 +57,8 @@ app.use(passport.session())
 // Configure passport-local to use a model for authentication
 passport.use(Athlete.createStrategy())
 
-passport.serializeUser(Athlete.serialiAthleteer())
-passport.deserializeUser(Athlete.deserializAthleter())
+passport.serializeUser(Athlete.serializeUser())
+passport.deserializeUser(Athlete.deserializeUser())
 
 app.use(express.static(path.join(__dirname, 'public')))
 
