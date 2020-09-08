@@ -23,6 +23,7 @@ supporter: Supporter
 
 class Athlete {
 name : string
+' password & email will leave the model and be passport middleware responsibility
 password : string
 email : string
 instructors : [Athlete]
