@@ -28,3 +28,5 @@ mongoose
 //     useUnifiedTopology: true,
 //   }
 // )
+
+module.exports = mongoose.connection
