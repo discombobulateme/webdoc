@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="gato" src="../assets/gato.jpg" />
+    <img alt="image showing the major jumping places in Brazil" src="../assets/home.png" />
     <Athlete v-for="athlete in athletes" :key="athlete._id" :athlete="athlete" />
   </div>
 </template>
@@ -13,8 +13,7 @@ import Athlete from '@/components/athlete.vue'
 export default {
   name: 'Home',
   components: {
-    Athlete,
-    Jump
+    Athlete
   },
   data() {
     return {

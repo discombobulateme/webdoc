@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const autopopulate = require('mongoose-autopopulate')
 
 const jumpSchema = new mongoose.Schema({
   modality: {
@@ -26,6 +27,7 @@ const jumpSchema = new mongoose.Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Athlete',
+      autopopulate: true,
     },
   ],
   description: String,
@@ -36,5 +38,7 @@ const jumpSchema = new mongoose.Schema({
     },
   ],
 })
+
+jumpSchema.plugin(autopopulate)
 
 module.exports = mongoose.model('Jump', jumpSchema)

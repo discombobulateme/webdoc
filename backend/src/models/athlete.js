@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const autopopulate = require('mongoose-autopopulate')
+const passportLocalMongoose = require('passport-local-mongoose')
 
 const Jump = require('./jump')
 const JumpLog = require('./jump-log')
@@ -8,14 +9,6 @@ const athleteSchema = new mongoose.Schema({
   name: {
     type: String,
     unique: true,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
     required: true,
   },
   instructors: [
@@ -28,13 +21,14 @@ const athleteSchema = new mongoose.Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Jump',
-      autopopulate: { maxDepth: 3 },
+      autopopulate: { maxDepth: 2 },
     },
   ],
   jumpLogs: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'JumpLog',
+      autopopulate: true,
     },
   ],
   age: Number,
@@ -63,5 +57,8 @@ class Athlete {
 
 athleteSchema.loadClass(Athlete)
 athleteSchema.plugin(autopopulate)
+athleteSchema.plugin(passportLocalMongoose, {
+  usernameField: 'email',
+})
 
 module.exports = mongoose.model('Athlete', athleteSchema)
