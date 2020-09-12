@@ -96,7 +96,7 @@ const store = new Vuex.Store({
         commit(mutations.SET_LIVE_STREAM, state.user._id)
       })
     },
-    async addLiveStream({ state, commit }, stream) {
+    async addLiveStream({ commit }, stream) {
       commit(mutations.ADD_LIVE_STREAM, stream)
     },
     async sendMessageToLiveStream({ state, commit }, body) {
@@ -107,7 +107,7 @@ const store = new Vuex.Store({
       commit(mutations.ADD_MESSAGE_TO_LIVE_STREAM, message)
       socket.emit('new message', state.currentLiveStream, message)
     },
-    async joinStream({ state, commit }, stream) {
+    async joinStream({ commit }, stream) {
       socket.emit('join stream', stream)
       commit(mutations.SET_LIVE_STREAM, stream)
     }
