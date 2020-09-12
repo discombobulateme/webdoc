@@ -1,4 +1,4 @@
-FROM node:alpine AS BUILDER
+FROM node:14.10.1-alpine3.11 AS BUILDER
 
 WORKDIR /app
 
@@ -6,15 +6,15 @@ ADD package.json package-lock.json ./
 
 RUN npm install
 
-# ADD .browserslistrc .prettierrc .eslintrc.js babel.config.js vue.config.js .env.production ./
-ADD .??* ./
+ADD .browserslistrc .prettierrc .eslintrc.js babel.config.js vue.config.js .env.production ./
+# ADD .??* ./
 
 ADD src ./src
 ADD public ./public
 
 RUN npm run build
 
-FROM node:alpine
+FROM node:14.10.1-alpine3.11
 
 WORKDIR /app
 
