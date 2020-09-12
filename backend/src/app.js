@@ -36,6 +36,10 @@ if (app.get('env') == 'development') {
     .createServer({ extraExts: ['pug'] })
     .watch([`${__dirname}/public`, `${__dirname}/views`])
 }
+// as this application is not https, our load balancer it dong that for us
+// it does that by proxy, which we need to trust
+app.set('trust proxy', 1)
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
