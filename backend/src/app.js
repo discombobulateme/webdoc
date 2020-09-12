@@ -18,6 +18,16 @@ const accountsRouter = require('./routes/accounts')
 
 const app = express()
 
+app.use(
+  cors({
+    // enables request from any domain, not safe
+    origin: true,
+    // this allows only this domain to be accessed
+    // origin: 'https://frontend-jgauvwujsq-ew.a.run.app/',
+    credentials: true,
+  })
+)
+
 if (app.get('env') == 'development') {
   /* eslint-disable-next-line */
   app.use(require('connect-livereload')())
