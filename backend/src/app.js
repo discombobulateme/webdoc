@@ -62,6 +62,9 @@ app.use(
       maxAge: 30 * 24 * 60 * 60 * 1000,
       // make cookies available only for api requests
       path: '/api',
+      sameSite: process.env.NODE_EV == 'production' ? 'none' : 'strict',
+      // secure = allows only https, not http
+      secure: process.env.NODE_EV == 'production',
     },
   })
 )
