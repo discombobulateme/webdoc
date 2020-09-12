@@ -6,6 +6,7 @@ const logger = require('morgan')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('passport')
+const cors = require('cors')
 // import the model that is used for authentication
 const Athlete = require('./models/athlete')
 
