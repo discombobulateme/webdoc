@@ -11,6 +11,7 @@ const cors = require('cors')
 const Athlete = require('./models/athlete')
 
 const mongooseConnection = require('./database-connection')
+const socketService = require('./socket-service')
 
 const indexRouter = require('./routes/index')
 const athletesRouter = require('./routes/athletes')
