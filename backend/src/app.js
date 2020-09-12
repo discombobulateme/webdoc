@@ -6,16 +6,28 @@ const logger = require('morgan')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('passport')
+const cors = require('cors')
 // import the model that is used for authentication
 const Athlete = require('./models/athlete')
 
 const mongooseConnection = require('./database-connection')
+const socketService = require('./socket-service')
 
 const indexRouter = require('./routes/index')
 const athletesRouter = require('./routes/athletes')
 const accountsRouter = require('./routes/accounts')
 
 const app = express()
+
+app.use(
+  cors({
+    // enables request from any domain, not safe
+    origin: true,
+    // this allows only this domain to be accessed
+    // origin: 'https://frontend-jgauvwujsq-ew.a.run.app/',
+    credentials: true,
+  })
+)
 
 if (app.get('env') == 'development') {
   /* eslint-disable-next-line */
@@ -25,6 +37,11 @@ if (app.get('env') == 'development') {
     .createServer({ extraExts: ['pug'] })
     .watch([`${__dirname}/public`, `${__dirname}/views`])
 }
+// as this application is not https, our load balancer it dong that for us
+// it does that by proxy, which we need to trust
+app.set('trust proxy', 1)
+
+app.set('io', socketService)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -45,6 +62,9 @@ app.use(
       maxAge: 30 * 24 * 60 * 60 * 1000,
       // make cookies available only for api requests
       path: '/api',
+      sameSite: process.env.NODE_EV == 'production' ? 'none' : 'strict',
+      // secure = allows only https, not http
+      secure: process.env.NODE_EV == 'production',
     },
   })
 )
@@ -62,6 +82,7 @@ passport.deserializeUser(Athlete.deserializeUser())
 
 app.use(express.static(path.join(__dirname, 'public')))
 
+// this is a prototype to track user, in case we need to block it in the future
 app.use('/api', (req, res, next) => {
   req.session.viewCount = req.session.viewCount || 0
   req.session.viewCount++
@@ -86,7 +107,12 @@ app.use((err, req, res, next) => {
 
   // render the error page
   res.status(err.status || 500)
-  res.render('error')
+  // res.render('error')
+  res.send({
+    status: err.status,
+    message: err.message,
+    stack: req.app.get('env') == 'development' ? err.stack : '',
+  })
 })
 
 module.exports = app

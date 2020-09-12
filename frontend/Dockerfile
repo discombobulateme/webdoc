@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:14.10.1-alpine3.11 AS BUILDER
 
 WORKDIR /app
 
@@ -6,7 +6,20 @@ ADD package.json package-lock.json ./
 
 RUN npm install
 
-ADD public ./public
-ADD .browserslistrc .eslintrc.js babel.config.js vue.config.js ./
+ADD .browserslistrc .prettierrc .eslintrc.js babel.config.js vue.config.js .env.production ./
+# ADD .??* ./
 
-CMD [ "npm", "run", "serve" ]
+ADD src ./src
+ADD public ./public
+
+RUN npm run build
+
+FROM node:14.10.1-alpine3.11
+
+WORKDIR /app
+
+RUN npm i -g serve
+
+COPY --from=BUILDER /app/dist ./
+#-s allows single-page application mode -l enables to choose the Port
+CMD serve -s -l $PORT
