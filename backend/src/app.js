@@ -41,6 +41,7 @@ if (app.get('env') == 'development') {
 // it does that by proxy, which we need to trust
 app.set('trust proxy', 1)
 
+app.set('io', socketService)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
