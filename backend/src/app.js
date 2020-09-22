@@ -7,6 +7,11 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('passport')
 const cors = require('cors')
+
+const rainbowPenguin = require('rainbow-penguin')
+
+if (process.env.NODE_ENV != 'development') rainbowPenguin()
+
 // import the model that is used for authentication
 const Athlete = require('./models/athlete')
 
