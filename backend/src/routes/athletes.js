@@ -12,6 +12,12 @@ router.get('/', async (req, res) => {
   res.send(await Athlete.find())
 })
 
+/* POST create an athlete */
+router.post('/', async (req, res) => {
+  const createdAthlete = await Athlete.create(req.body)
+  res.send(createdAthlete)
+})
+
 router.get('/initialize', async (req, res) => {
   // this format is required to use passport middleware
   const paloma = new Athlete({ name: 'paloma', age: 37, email: 'p@p.com' })
