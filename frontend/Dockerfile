@@ -6,7 +6,7 @@ ADD package.json package-lock.json ./
 
 RUN npm install
 
-ADD .browserslistrc .prettierrc .eslintrc.js babel.config.js vue.config.js .env.production ./
+ADD .browserslistrc .env.production .eslintrc.js .prettierignore .prettierrc babel.config.js vue.config.js ./
 
 ADD src ./src
 ADD public ./public
