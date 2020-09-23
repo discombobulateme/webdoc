@@ -1,5 +1,6 @@
 const express = require('express')
 const passport = require('passport')
+
 const Athlete = require('../models/athlete')
 
 const router = express.Router()
@@ -8,14 +9,15 @@ router.get('/session', (req, res) => {
   res.send(req.session)
 })
 
+// Creates a new Athelte account
 router.post('/', async (req, res) => {
-  const { name, age, email, password } = req.body
+  const { name, email, password } = req.body
 
-  const athlete = new Athlete({ name, age, email })
+  const athlete = new Athlete({ name, email })
   await athlete.setPassword(password)
   await athlete.save()
 
-  return athlete
+  res.send(athlete)
 })
 
 // login mechanism: create a session and logout: delete it

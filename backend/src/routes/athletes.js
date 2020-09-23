@@ -20,15 +20,15 @@ router.post('/', async (req, res) => {
 
 router.get('/initialize', async (req, res) => {
   // this format is required to use passport middleware
-  const paloma = new Athlete({ name: 'paloma', age: 37, email: 'p@p.com' })
+  const paloma = new Athlete({ name: 'paloma', age: 37, gender: 'fluid', email: 'p@p.com' })
   await paloma.setPassword('test')
   await paloma.save()
 
-  const kim = new Athlete({ name: 'kim', age: 42, email: 'k@k.com' })
+  const kim = new Athlete({ name: 'kim', age: 42, gender: 'male', email: 'k@k.com' })
   await kim.setPassword('test')
   await kim.save()
 
-  const julia = new Athlete({ name: 'julia', age: 35, email: 'j@j.com' })
+  const julia = new Athlete({ name: 'julia', age: 35, gender: 'female', email: 'j@j.com' })
   await julia.setPassword('test')
   await julia.save()
 

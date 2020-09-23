@@ -16,11 +16,11 @@ if (process.env.NODE_ENV != 'development') rainbowPenguin()
 const Athlete = require('./models/athlete')
 
 const mongooseConnection = require('./database-connection')
-const socketService = require('./socket-service')
 
 const indexRouter = require('./routes/index')
 const athletesRouter = require('./routes/athletes')
 const accountsRouter = require('./routes/accounts')
+const jumpsRouter = require('./routes/jumps')
 
 const app = express()
 
@@ -39,14 +39,12 @@ if (app.get('env') == 'development') {
   app.use(require('connect-livereload')())
   /* eslint-disable-next-line */
   require('livereload')
-    .createServer({ extraExts: ['pug'] })
+    .createServer({ extraExts: ['pug'], usePolling: true })
     .watch([`${__dirname}/public`, `${__dirname}/views`])
 }
 // as this application is not https, our load balancer it dong that for us
 // it does that by proxy, which we need to trust
 app.set('trust proxy', 1)
-
-app.set('io', socketService)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -87,16 +85,40 @@ passport.deserializeUser(Athlete.deserializeUser())
 
 app.use(express.static(path.join(__dirname, 'public')))
 
-// this is a prototype to track user, in case we need to block it in the future
-app.use('/api', (req, res, next) => {
-  req.session.viewCount = req.session.viewCount || 0
-  req.session.viewCount++
-  next()
-})
+// express-session connect-mongo
+app.use(
+  session({
+    secret: ['howtomakethisprotectedisachallange', 'thisisavalidatorformyfirstsecretsecret'],
+    store: new MongoStore({ mongooseConnection, stringify: false }),
+    cookie: {
+      // our session expires in 7 days in milliseconds
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+      // make cookies available only for api requests
+      path: '/api',
+      sameSite: process.env.NODE_EV == 'production' ? 'none' : 'strict',
+      // secure = allows only https, not http
+      secure: process.env.NODE_EV == 'production',
+    },
+  })
+)
+
+// this is the passport middleware
+// this should come after session declaration!
+app.use(passport.initialize())
+app.use(passport.session())
+
+// Configure passport-local to use a model for authentication
+passport.use(Athlete.createStrategy())
+
+passport.serializeUser(Athlete.serializeUser())
+passport.deserializeUser(Athlete.deserializeUser())
+
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api/', indexRouter)
 app.use('/api/account', accountsRouter)
 app.use('/api/athletes', athletesRouter)
+app.use('/api/jumps', jumpsRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

@@ -1,7 +1,8 @@
 const request = require('supertest')
+const randomEmail = require('random-email')()
 const app = require('../src/app')
-// add generate random name package?
 
+// Create an athlete
 describe('Athletes endpoints', () => {
   it.only('post request to /athletes should create an athlete', async () => {
     const athleteToCreate = {
@@ -9,12 +10,13 @@ describe('Athletes endpoints', () => {
       name: `SomeName${Date.now()}`,
       age: 37,
       gender: 'Fluid',
+      email: `${randomEmail}`,
     }
 
     const createdAthlete = (await request(app).post('/api/athletes').send(athleteToCreate)).body
     expect(createdAthlete.name).toBe(athleteToCreate.name)
     expect(createdAthlete.age).toBe(athleteToCreate.age)
-    expect(createdAthlete.bio).toBe(athleteToCreate.bio)
+    expect(createdAthlete.gender).toBe(athleteToCreate.gender)
   })
 
   it('get request to /athletes should list athletes', async () => {
