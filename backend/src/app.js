@@ -62,8 +62,8 @@ app.use(
     secret: ['howtomakethisprotectedisachallange', 'thisisavalidatorformyfirstsecretsecret'],
     store: new MongoStore({ mongooseConnection, stringify: false }),
     cookie: {
-      // our session expires in 30 day in milliseconds
-      maxAge: 30 * 24 * 60 * 60 * 1000,
+      // our session expires in 7 days in milliseconds
+      maxAge: 7 * 24 * 60 * 60 * 1000,
       // make cookies available only for api requests
       path: '/api',
       sameSite: process.env.NODE_EV == 'production' ? 'none' : 'strict',
