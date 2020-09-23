@@ -96,6 +96,7 @@ app.use('/api', (req, res, next) => {
 app.use('/api/', indexRouter)
 app.use('/api/account', accountsRouter)
 app.use('/api/athletes', athletesRouter)
+app.use('/api/jumps', jumpsRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
