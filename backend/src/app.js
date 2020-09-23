@@ -20,6 +20,7 @@ const mongooseConnection = require('./database-connection')
 const indexRouter = require('./routes/index')
 const athletesRouter = require('./routes/athletes')
 const accountsRouter = require('./routes/accounts')
+const jumpsRouter = require('./routes/jumps')
 
 const app = express()
 
