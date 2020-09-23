@@ -86,13 +86,6 @@ passport.deserializeUser(Athlete.deserializeUser())
 
 app.use(express.static(path.join(__dirname, 'public')))
 
-// this is a prototype to track user, in case we need to block it in the future
-app.use('/api', (req, res, next) => {
-  req.session.viewCount = req.session.viewCount || 0
-  req.session.viewCount++
-  next()
-})
-
 app.use('/api/', indexRouter)
 app.use('/api/account', accountsRouter)
 app.use('/api/athletes', athletesRouter)
