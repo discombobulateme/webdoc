@@ -54,6 +54,35 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
+
+// express-session connect-mongo
+app.use(
+  session({
+    secret: ['howtomakethisprotectedisachallange', 'thisisavalidatorformyfirstsecretsecret'],
+    store: new MongoStore({ mongooseConnection, stringify: false }),
+    cookie: {
+      // our session expires in 30 day in milliseconds
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      // make cookies available only for api requests
+      path: '/api',
+      sameSite: process.env.NODE_EV == 'production' ? 'none' : 'strict',
+      // secure = allows only https, not http
+      secure: process.env.NODE_EV == 'production',
+    },
+  })
+)
+
+// this is the passport middleware
+// this should come after session declaration!
+app.use(passport.initialize())
+app.use(passport.session())
+
+// Configure passport-local to use a model for authentication
+passport.use(Athlete.createStrategy())
+
+passport.serializeUser(Athlete.serializeUser())
+passport.deserializeUser(Athlete.deserializeUser())
+
 app.use(express.static(path.join(__dirname, 'public')))
 
 // express-session connect-mongo

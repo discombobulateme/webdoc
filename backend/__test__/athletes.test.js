@@ -2,7 +2,6 @@ const request = require('supertest')
 const randomEmail = require('random-email')()
 const app = require('../src/app')
 
-// add generate random name package?
 // Create an athlete
 describe('Athletes endpoints', () => {
   it.only('post request to /athletes should create an athlete', async () => {
