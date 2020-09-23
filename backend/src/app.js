@@ -16,7 +16,6 @@ if (process.env.NODE_ENV != 'development') rainbowPenguin()
 const Athlete = require('./models/athlete')
 
 const mongooseConnection = require('./database-connection')
-const socketService = require('./socket-service')
 
 const indexRouter = require('./routes/index')
 const athletesRouter = require('./routes/athletes')
