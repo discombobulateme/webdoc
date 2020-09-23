@@ -14,7 +14,7 @@ describe('Athletes endpoints', () => {
     const createdAthlete = (await request(app).post('/api/athletes').send(athleteToCreate)).body
     expect(createdAthlete.name).toBe(athleteToCreate.name)
     expect(createdAthlete.age).toBe(athleteToCreate.age)
-    expect(createdAthlete.bio).toBe(athleteToCreate.bio)
+    expect(createdAthlete.gender).toBe(athleteToCreate.gender)
   })
 
   it('get request to /athletes should list athletes', async () => {
