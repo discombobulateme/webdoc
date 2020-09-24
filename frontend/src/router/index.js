@@ -37,12 +37,17 @@ export default store => {
           return next()
         }
       },
+      {
+        path: '/',
+        name: 'profile',
+        component: Profile
+      },
+      {
+        path: '/users/:id',
+        name: 'UserDetail',
+        component: () => import(/* webpackChunkName: "about" */ '../views/user-detail.vue')
       }
       // {
-      //   path: '/profile',
-      //   name: 'Profile',
-      //   component: Profile
-      // },
       //   path: '/athletes',
       //   name: 'Athletes',
       //   component: () => import(/* webpackChunkName: "about" */ '../views/athletes.vue')
@@ -52,7 +57,7 @@ export default store => {
       //   name: 'Jumps',
       //   // which is lazy-loaded when the route is visited.
       //   component: () => import(/* webpackChunkName: "about" */ '../views/jumps.vue')
-      // },
+      // }
       // {
       //   path: '/athletes/:id',
       //   name: 'AthleteProfile',
