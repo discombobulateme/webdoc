@@ -21,7 +21,7 @@ export default store => {
       },
       {
         path: '/register',
-        name: 'Register',
+        name: 'register',
         component: Register,
         beforeEnter(to, from, next) {
           if (store.state.user) return next('/profile')
@@ -30,12 +30,13 @@ export default store => {
       },
       {
         path: '/login',
-        name: 'Login',
+        name: 'login',
         component: Login,
         beforeEnter(to, from, next) {
           if (store.state.user) return next('/profile')
           return next()
         }
+      },
       }
       // {
       //   path: '/profile',
