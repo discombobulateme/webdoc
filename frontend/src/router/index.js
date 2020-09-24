@@ -17,27 +17,6 @@ export default store => {
         name: 'Home',
         component: Home
       },
-      // {
-      //   path: '/athletes',
-      //   name: 'Athletes',
-      //   component: () => import(/* webpackChunkName: "about" */ '../views/athletes.vue')
-      // },
-      // {
-      //   path: '/jumps',
-      //   name: 'Jumps',
-      //   // which is lazy-loaded when the route is visited.
-      //   component: () => import(/* webpackChunkName: "about" */ '../views/jumps.vue')
-      // },
-      // {
-      //   path: '/athletes/:id',
-      //   name: 'AthleteProfile',
-      //   component: () => import(/* webpackChunkName: "about" */ '../views/athlete-profile.vue')
-      // },
-      // {
-      //   path: '/jumps/:id',
-      //   name: 'JumpProfile',
-      //   component: () => import(/* webpackChunkName: "about" */ '../views/jump-profile.vue')
-      // },
       {
         path: '/register',
         name: 'Register',
@@ -60,6 +39,27 @@ export default store => {
       //   path: '/account',
       //   name: 'Account',
       //   component: Account
+      // },
+      // {
+      //   path: '/athletes',
+      //   name: 'Athletes',
+      //   component: () => import(/* webpackChunkName: "about" */ '../views/athletes.vue')
+      // },
+      // {
+      //   path: '/jumps',
+      //   name: 'Jumps',
+      //   // which is lazy-loaded when the route is visited.
+      //   component: () => import(/* webpackChunkName: "about" */ '../views/jumps.vue')
+      // },
+      // {
+      //   path: '/athletes/:id',
+      //   name: 'AthleteProfile',
+      //   component: () => import(/* webpackChunkName: "about" */ '../views/athlete-profile.vue')
+      // },
+      // {
+      //   path: '/jumps/:id',
+      //   name: 'JumpProfile',
+      //   component: () => import(/* webpackChunkName: "about" */ '../views/jump-profile.vue')
       // },
       // {
       //   path: '/account/edit-athlete',
