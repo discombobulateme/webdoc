@@ -2,12 +2,15 @@
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'Register',
+  name: 'register',
   data() {
     return {
       name: '',
+      gender: '',
+      instructor: '',
       email: '',
       password: '',
+
       backendError: null
     }
   },
@@ -15,12 +18,16 @@ export default {
     ...mapActions(['register']),
     async submitRegister(event) {
       event.preventDefault()
+
       try {
         await this.register({
           name: this.name,
+          gender: this.gender,
+          instructor: [],
           email: this.email,
           password: this.password
         })
+
         this.$router.push('/login')
       } catch (error) {
         this.backendError = error.response.data.message
