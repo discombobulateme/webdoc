@@ -27,6 +27,15 @@ const store = new Vuex.Store({
     incrementCount({ commit }) {
       commit(INCREMENT_COUNT)
     },
+    async fetchUser(store, id) {
+      const userRequest = await axios.get(`/api/athletes/${id}`)
+      return userRequest.data
+    },
+    async fetchUsers() {
+      const usersRequest = await axios.get('/api/athletes')
+      return usersRequest.data
+    },
+
     // AUTHENTICATION
     async fetchSession({ commit }) {
       const user = await axios.get('/api/account/session')
