@@ -8,17 +8,25 @@ axios.defaults.withCredentials = true
 Vue.use(Vuex)
 
 const SET_USER = 'set account'
+const INCREMENT_COUNT = 'increment count'
 
 const store = new Vuex.Store({
   state: {
+    count: 0,
     user: null
   },
   mutations: {
+    [INCREMENT_COUNT](state) {
+      state.count++
+    },
     [SET_USER](state, user) {
       state.user = user
     }
   },
   actions: {
+    incrementCount({ commit }) {
+      commit(INCREMENT_COUNT)
+    },
     // AUTHENTICATION
     async fetchSession({ commit }) {
       const user = await axios.get('/api/account/session')
