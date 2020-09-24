@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
@@ -22,7 +24,7 @@ export default store => {
         name: 'Register',
         component: Register,
         beforeEnter(to, from, next) {
-          if (store.state.account) return next('/')
+          if (store.state.user) return next('/profile')
           return next()
         }
       },
@@ -31,10 +33,15 @@ export default store => {
         name: 'Login',
         component: Login,
         beforeEnter(to, from, next) {
-          if (store.state.account) return next('/')
+          if (store.state.user) return next('/profile')
           return next()
         }
       }
+      // {
+      //   path: '/profile',
+      //   name: 'Profile',
+      //   component: Profile
+      // },
       // {
       //   path: '/account',
       //   name: 'Account',
