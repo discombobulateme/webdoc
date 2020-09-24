@@ -41,9 +41,15 @@ const store = new Vuex.Store({
       const user = await axios.get('/api/account/session')
       commit(SET_USER, user.data || null)
     },
+
+    // LOGIN, REGISTER, LOGOUT sessions
     async login({ commit }, credentials) {
-      const user = await axios.post('/api/account/session', credentials)
-      commit(SET_USER, user.data)
+      try {
+        const user = await axios.post('/api/account/session', credentials)
+        commit(SET_USER, user.data || null)
+      } catch (error) {
+        throw error
+      }
     },
     async register(store, user) {
       return axios.post('/api/account', user)
