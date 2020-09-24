@@ -6,7 +6,7 @@ const Athlete = require('../models/athlete')
 const router = express.Router()
 
 router.get('/session', (req, res) => {
-  res.send(req.session)
+  res.send(req.user)
 })
 
 // Creates a new Athelte account
