@@ -6,7 +6,7 @@ This is a website that aims to tell the history of Brazilian Base Jump through t
 
 ### Wireframe
 
-[Proposal%20fd4c4ba538ed461288ee990b5b4ad077/wireframe.pdf](Proposal%20fd4c4ba538ed461288ee990b5b4ad077/wireframe.pdf)
+[wireframe.pdf](https://github.com/discombobulateme/webdoc/files/5277982/wireframe.pdf)
 
 This is a home page image sketch.
 
