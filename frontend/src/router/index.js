@@ -43,16 +43,10 @@ export default store => {
       //   name: 'Profile',
       //   component: Profile
       // },
-      // {
-      //   path: '/account',
-      //   name: 'Account',
-      //   component: Account
-      // },
-      // {
       //   path: '/athletes',
       //   name: 'Athletes',
       //   component: () => import(/* webpackChunkName: "about" */ '../views/athletes.vue')
-      // },
+      // }
       // {
       //   path: '/jumps',
       //   name: 'Jumps',
