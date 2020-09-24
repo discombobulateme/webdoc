@@ -19,7 +19,7 @@ export default {
           email: this.email,
           password: this.password
         })
-        this.$router.push('/')
+        this.$router.push('/profile')
       } catch (error) {
         this.backendError = error.response.data.message
       }
