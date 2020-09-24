@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/login.vue'
 import Register from '../views/register.vue'
-// import Account from '../views/account.vue'
+import Profile from '../views/profile.vue'
 
 Vue.use(VueRouter)
 
