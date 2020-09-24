@@ -43,3 +43,33 @@ export default {
     p Don't have an account yet?
       router-link(to='/register') Register
 </template>
+
+<style lang="scss" scoped>
+label {
+  display: block;
+  margin: 1rem 0;
+}
+button {
+  background: linear-gradient(to bottom, #ff8808 5%, #eafa05 100%);
+  background-color: #ff8808;
+  border-radius: 28px;
+  border: 1px solid #eafa05;
+  display: inline-block;
+  cursor: pointer;
+  color: #0091ff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 16px 31px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+
+  &:hover {
+    background: linear-gradient(to bottom, #eafa05 5%, #ff8808 100%);
+    background-color: #eafa05;
+  }
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}
+</style>
