@@ -33,20 +33,21 @@ export default {
 <template lang="pug">
   section
     form(@submit='submitRegister')
-      h1 Register
-      label(for='name') Name:
-      input(id='name' type='text' v-model='name' required)
-      br
-      label(for='email') Email:
-      input(id='email' type='email' v-model='email' required)
-      br
-      label(for='password') Password:
-      input(id='password' type='password' v-model='password' required)
-      br
+      h1 Create a new athlete account
+      label(for='name') Name:&nbsp;
+        input(id='name' type='text' v-model='name' required)
+      label(for='gender') Gender:&nbsp;
+        input(id='gender' type='text' v-model='gender' required)
+      label(for='instructor') Instructor(s):&nbsp;
+        input(id='instructor' type='text' v-model='instructor' required)
+      label(for='email') Email:&nbsp;
+        input(id='email' type='email' v-model='email' required)
+      label(for='password') Password:&nbsp;
+        input(id='password' type='password' v-model='password' required)
       button(type='submit') Create account
     p {{ backendError }}
     p Already have an account?
-      router-link(to='/login') Login
+    router-link(to='/login') Login
 </template>
 
 <style lang="scss" scoped>
