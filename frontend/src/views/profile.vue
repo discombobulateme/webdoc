@@ -11,13 +11,12 @@ export default {
       time: new Date(),
       bio: ''
     }
-  }
+  },
   async created() {
     this.users = await this.fetchUsers()
   },
   methods: {
-    ...mapActions(['fetchUsers']),
-    }
+    ...mapActions(['fetchUsers'])
   },
   computed: {
     ...mapState(['user'])
