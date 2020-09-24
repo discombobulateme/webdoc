@@ -2,7 +2,7 @@
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'Login',
+  name: 'login',
   data() {
     return {
       email: '',
@@ -31,17 +31,15 @@ export default {
 <template lang="pug">
   section
     form(@submit='submitLogin')
-      h1 Log into your account
-      label(for='email') Email:
-      input(id='email' type='email' v-model='email' required)
-      br
-      label(for='password') Password:
-      input(id='password' type='password' v-model='password' required)
-      br
+      h1 Login
+      label(for='email') Email:&nbsp;
+        input(id='email' type='email' v-model='email' required)
+      label(for='password') Password:&nbsp;
+        input(id='password' type='password' v-model='password' required)
       button(type='submit') Login
     p(v-if='backendError') {{ backendError }}
-    p Don't have an account yet?
-      router-link(to='/register') Register
+    p Do not have an account yet?
+    router-link(to='/register') Register
 </template>
 
 <style lang="scss" scoped>
