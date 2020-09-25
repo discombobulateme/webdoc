@@ -1,6 +1,7 @@
 <template lang="pug">
   #app
-    h1 Escrevendo a historia do BASE jump brasileiro
+    h1 A LEAP OF FAITH
+    h2 uma historia de muitas historias sobre o base jump brasileiro
     #nav
       router-link(to="/") Start |&nbsp;
       router-link(to="/about") About |&nbsp;
