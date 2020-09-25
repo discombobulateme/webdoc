@@ -22,10 +22,15 @@ export default {
       try {
         await this.register({
           name: this.name,
-          gender: this.gender,
-          instructor: [],
           email: this.email,
-          password: this.password
+          password: this.password,
+
+          gender: this.gender,
+          age: this.age,
+
+          instructor: [],
+          jumps: [],
+          jumpLogs: []
         })
 
         this.$router.push('/login')
@@ -43,14 +48,20 @@ export default {
       h1 Create a new athlete account
       label(for='name') Name:&nbsp;
         input(id='name' type='text' v-model='name' required)
-      label(for='gender') Gender:&nbsp;
-        input(id='gender' type='text' v-model='gender' required)
-      label(for='instructor') Instructor(s):&nbsp;
-        input(id='instructor' type='text' v-model='instructor' required)
       label(for='email') Email:&nbsp;
         input(id='email' type='email' v-model='email' required)
       label(for='password') Password:&nbsp;
         input(id='password' type='password' v-model='password' required)
+      label(for='gender') Gender:&nbsp;
+        input(id='gender' type='text' v-model='gender')
+      label(for='age') Age:&nbsp;
+        input(id='age' type='text' v-model='age')
+      label(for='instructor') Instructor(s):&nbsp;
+        input(id='instructor' type='text' v-model='instructor')
+      label(for='jump') Jump(s):&nbsp;
+        input(id='jump' type='text' v-model='jump')
+      label(for='jumpLog') JumpLog(s):&nbsp;
+        input(id='jumpLog' type='text' v-model='jumpLog')
       button(type='submit') Create account
     p {{ backendError }}
     p Already have an account?
