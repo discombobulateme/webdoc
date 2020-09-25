@@ -4,7 +4,7 @@ export default {
   props: ['user'],
   data() {
     return {
-      defaultBio: 'This user has no bios.'
+      defaultBio: 'Oi, eu sou parte da história do BASE jump brasileiro. Quer saber mais sobre a minha história?'
     }
   }
 }
