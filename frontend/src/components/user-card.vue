@@ -19,8 +19,17 @@ export default {
 <style lang="scss" scoped>
 .box {
   padding: 2rem;
-  border: 1px solid #333;
-  background: #dd0;
+  background: white;
+  color: black;
   border-radius: 0.3rem;
+}
+
+h1 {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: black;
 }
 </style>
