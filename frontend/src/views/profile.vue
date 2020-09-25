@@ -28,6 +28,7 @@ export default {
   .home
     h1 Eu sou {{ user.name }}, e essa é a minha história
     p Eu me identifico como {{ user.gender }}
+    p {{ time }} é o momento em que decidi escrever minha parte da história
     h2 Users
     div(v-for="user in users")
       router-link(:to="`/users/${user._id}`") {{ user.name }}
