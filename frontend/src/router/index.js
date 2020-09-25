@@ -38,7 +38,7 @@ export default store => {
         }
       },
       {
-        path: '/',
+        path: '/profile',
         name: 'profile',
         component: Profile
       },
