@@ -5,6 +5,7 @@
       router-link(to="/") Start |&nbsp;
       router-link(to="/about") About |&nbsp;
       router-link(to="/athletes") BASE Jumpers |&nbsp;
+      router-link(to="/places") Exit Points
     router-view
 </template>
 
