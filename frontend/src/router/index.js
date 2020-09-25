@@ -6,6 +6,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/login.vue'
 import Register from '../views/register.vue'
 import Profile from '../views/profile.vue'
+import Athletes from '../views/athletes.vue'
 
 Vue.use(VueRouter)
 
@@ -46,12 +47,12 @@ export default store => {
         path: '/users/:id',
         name: 'UserDetail',
         component: () => import(/* webpackChunkName: "about" */ '../views/user-detail.vue')
+      },
+      {
+        path: '/athletes',
+        name: 'athletes',
+        component: () => import(/* webpackChunkName: "about" */ '../views/athletes.vue')
       }
-      // {
-      //   path: '/athletes',
-      //   name: 'Athletes',
-      //   component: () => import(/* webpackChunkName: "about" */ '../views/athletes.vue')
-      // }
       // {
       //   path: '/jumps',
       //   name: 'Jumps',
