@@ -7,6 +7,7 @@ import Login from '../views/login.vue'
 import Register from '../views/register.vue'
 import Profile from '../views/profile.vue'
 import Athletes from '../views/athletes.vue'
+import Places from '../views/places.vue'
 
 Vue.use(VueRouter)
 
@@ -52,6 +53,11 @@ export default store => {
         path: '/athletes',
         name: 'athletes',
         component: () => import(/* webpackChunkName: "about" */ '../views/athletes.vue')
+      },
+      {
+        path: '/places',
+        name: 'places',
+        component: () => import(/* webpackChunkName: "about" */ '../views/places.vue')
       }
       // {
       //   path: '/jumps',
