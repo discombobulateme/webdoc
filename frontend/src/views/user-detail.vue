@@ -22,7 +22,7 @@ export default {
 
 <template lang="pug">
   .about
-    h1 Essa é a minha história
+    h2 Essa é a história de cada um que faz história
     UserCard(:user="user" v-if="user")
     Counter
 </template>
