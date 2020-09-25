@@ -5,7 +5,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/login.vue'
 import Register from '../views/register.vue'
-// import Account from '../views/account.vue'
+import Profile from '../views/profile.vue'
+import Athletes from '../views/athletes.vue'
 
 Vue.use(VueRouter)
 
@@ -21,7 +22,7 @@ export default store => {
       },
       {
         path: '/register',
-        name: 'Register',
+        name: 'register',
         component: Register,
         beforeEnter(to, from, next) {
           if (store.state.user) return next('/profile')
@@ -30,34 +31,34 @@ export default store => {
       },
       {
         path: '/login',
-        name: 'Login',
+        name: 'login',
         component: Login,
         beforeEnter(to, from, next) {
           if (store.state.user) return next('/profile')
           return next()
         }
+      },
+      {
+        path: '/profile',
+        name: 'profile',
+        component: Profile
+      },
+      {
+        path: '/users/:id',
+        name: 'UserDetail',
+        component: () => import(/* webpackChunkName: "about" */ '../views/user-detail.vue')
+      },
+      {
+        path: '/athletes',
+        name: 'athletes',
+        component: () => import(/* webpackChunkName: "about" */ '../views/athletes.vue')
       }
-      // {
-      //   path: '/profile',
-      //   name: 'Profile',
-      //   component: Profile
-      // },
-      // {
-      //   path: '/account',
-      //   name: 'Account',
-      //   component: Account
-      // },
-      // {
-      //   path: '/athletes',
-      //   name: 'Athletes',
-      //   component: () => import(/* webpackChunkName: "about" */ '../views/athletes.vue')
-      // },
       // {
       //   path: '/jumps',
       //   name: 'Jumps',
       //   // which is lazy-loaded when the route is visited.
       //   component: () => import(/* webpackChunkName: "about" */ '../views/jumps.vue')
-      // },
+      // }
       // {
       //   path: '/athletes/:id',
       //   name: 'AthleteProfile',

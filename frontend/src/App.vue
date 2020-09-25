@@ -1,9 +1,10 @@
 <template lang="pug">
   #app
-    h1 An interactive documentary about Brazilian BASE jump
+    h1 Escrevendo a historia do BASE jump brasileiro
     #nav
       router-link(to="/") Start |&nbsp;
-      router-link(to="/about") About
+      router-link(to="/about") About |&nbsp;
+      router-link(to="/athletes") BASE Jumpers |&nbsp;
     router-view
 </template>
 
