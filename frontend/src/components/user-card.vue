@@ -12,8 +12,8 @@ export default {
 
 <template lang="pug">
 .box
-  h1 {{ user.name }} ({{ user.gender }})
-  p Bio: {{ user.bio || defaultBio }}
+  h1 {{ user.name }} ({{ user.gender }}, {{ user.age }})
+  p {{ user.bio || defaultBio }}
 </template>
 
 <style lang="scss" scoped>
