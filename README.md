@@ -1,4 +1,5 @@
 # An interactive web documentary about brazilian basejump
+This is an ongoing project. You can follow the result at the development at: https://frontend-jgauvwujsq-ew.a.run.app/
 
 ## Concept
 
